@@ -1,7 +1,7 @@
 export("BE3.backward.crit", "dgumbel2",
        "ML.BE3", "pgumbel2", "qgumbel2", "rBE3", "dBE3", "pBE3", "qBE3")
 importFrom("stats", "qnorm","rnorm","qbeta","dbeta","pbeta","rgamma","plogis",
-	"optim","model.matrix","rbinom")
+	"optim","model.matrix","rbinom","coef","lm")
 importFrom("pracma", "hessian")
 importFrom("gtools", "combinations")
 

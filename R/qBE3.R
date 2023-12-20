@@ -1,5 +1,5 @@
 qBE3 <-
-function(p, mu = 0.5, alpha = 1, beta = 1, tau=0.5, log.p = FALSE)
+function(p, mu = 0.5, alpha = 1, beta = 1, tau=0.5)
 {
 if (is.null(p)) 
         stop("p must be specified")

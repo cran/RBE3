@@ -12,7 +12,7 @@ Density, distribution function, quantile function and random generation for the 
 \usage{
 dBE3(x, mu = 0.5, alpha = 1, beta = 1, tau = 0.5, log = FALSE)
 pBE3(q, mu = 0.5, alpha = 1, beta = 1, tau = 0.5, lower.tail = TRUE, log.p = FALSE)
-qBE3(p, mu = 0.5, alpha = 1, beta = 1, tau = 0.5, log.p = FALSE)
+qBE3(p, mu = 0.5, alpha = 1, beta = 1, tau = 0.5)
 rBE3(n, mu = 0.5, alpha = 1, beta = 1, tau = 0.5)
 }
 \arguments{

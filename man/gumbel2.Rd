@@ -2,7 +2,6 @@
 \alias{dgumbel2}
 \alias{pgumbel2}
 \alias{qgumbel2}
-\alias{rgumbel2}
 \title{The Gumbel2 distribution
 }
 \description{

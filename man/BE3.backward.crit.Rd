@@ -6,12 +6,11 @@ backward stepwise regression for RBE3 model based on the AIC criterion or signif
 }
 \description{
 BE3.backward.crit implements the covariates selection based on backward and the Akaike's information criteria (AIC).
-%BE3.backward.sign implements the covariates selection based on backward and significance of the covariates.
+BE3.backward.sign implements the covariates selection based on backward and significance of the covariates.
 }
 \usage{
-BE3.backward.crit(data, tau = 0.5, link.mu = "logit", seeds.max = 100)
-%BE3.backward.sign(data, tau = 0.5, link.mu = "logit", seeds.max = 100,
-%      significance = 0.05)
+BE3.backward.crit(data, tau = 0.5, link.mu = "logit")
+%BE3.backward.sign(data, tau = 0.5, link.mu = "logit", significance = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,12 +24,6 @@ the quantile of the distribution to be modelled (\eqn{0<\tau<1}).
   \item{link.mu}{
 link function to be used for \eqn{\mu}: logit (default), probit, loglog or cloglog. 
 }
-  \item{seeds.max}{
-maximum of seeds to be reached. 
-}
-%\item{significance}{
-%level of significance used. Only for BE3.backward.sign function.
-%}
 }
 \value{
 A list containg the covariates to be included for modelling \eqn{\mu}, \eqn{\alpha} and \eqn{\beta}, respectively.
@@ -39,7 +32,6 @@ A list containg the covariates to be included for modelling \eqn{\mu}, \eqn{\alp
 Diego Gallardo and Marcelo Bourguignon.
 }
 \examples{
-\donttest{
 ##Simulating two covariates
 set.seed(2100)
 x1<-rnorm(200); x2<-rbinom(200, size=1, prob=0.5)
@@ -52,6 +44,5 @@ mu=plogis(Z1\%*\%theta); alpha=exp(Z2\%*\%nu); beta=exp(Z3\%*\%eta)
 y=rBE3(200, mu, alpha, beta, tau=tau)
 data=list(y=y, Z1=Z1, Z2=Z2, Z3=Z3)
 BE3.backward.crit(data, tau = tau)
-}
 }
 

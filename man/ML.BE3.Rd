@@ -7,8 +7,7 @@ Perform the parameter estimation for the Generalized beta distribution
 ML.BE3 computes the maximum likelihood estimates based on the maximum likelihood method. 
 }
 \usage{
-ML.BE3(data, tau = 0.5, link.mu = "logit", seeds.max = 100, init.intercept = FALSE, 
-       seeds.valid = 6)
+ML.BE3(data, tau = 0.5, link.mu = "logit")
 }
 \arguments{
   \item{data}{
@@ -21,27 +20,19 @@ the quantile of the distribution to be modelled (\eqn{0<\tau<1}).
   \item{link.mu}{
 link function to be used for \eqn{\mu}: logit (default), probit, loglog or cloglog. 
 }
-  \item{seeds.max}{
-maximum of seeds to be reached. 
-}
-  \item{init.intercept}{
-initial values for the intercept terms. If no values have been provided, a vector of zeros will be assumed.
-}
-  \item{seeds.valid}{
-maximum of estimation procedures with convergence to be reached. 
-}
 }
 \details{
 Covariates are included as \eqn{g_1(\mu_i(\tau))=\mathbf{Z}_{1i}^\top {\bm \theta}(\tau)}, \eqn{g_2(\alpha_i(\tau))=\mathbf{Z}_{2i}^\top {\bm \nu}(\tau)}
 and \eqn{g_3(\beta_i(\tau))=\mathbf{Z}_{3i}^\top {\bm \eta}(\tau)}, where \eqn{{\bm \theta}(\tau)=(\theta_1(\tau),\ldots,\theta_{r_1}(\tau))},
 \eqn{{\bm \nu}(\tau)=(\nu_1(\tau),\ldots,\nu_{r_2}(\tau))} and \eqn{{\bm \eta}(\tau)=(\eta_1(\tau),\ldots,\eta_{r_3}(\tau))}, where \eqn{r_1, r_2} and \eqn{r_3}
-are the dimensions of \eqn{Z_1, Z_2} and \eqn{Z_3}, respectively.
-Since in previous attempts to maximize the log-likelihood function of the BE3 model we have noticed that the result can strongly depend on the seed used, we have decided to implement an algorithm that uses the Nelder-Mead option and the BFGS option of the optimal function, each of them used half the times defined in seed.valid (6 by default). 
+are the dimensions of \eqn{Z_1, Z_2} and \eqn{Z_3}, respectively. 
+Initial values for \eqn{{\bm \theta}(\tau)} are used as the coefficients for the linear regresion in \eqn{\mbox{logit}(y_i)} using the elements of 
+\eqn{\mathbf{Z}_{1i}^\top} as regressors. Initial values for the other coefficients are considered as zeros.
 }
 \value{
 a list containing the following elements
 \item{estimate}{A matrix with the estimates }
-
+\item{logLik}{The maximum likelihood values attached by the estimates parameters}
 }
 \references{
 Bourguignon, M., Gallardo, D.I., Saulo, H. (2023) A parametric quantile beta regression for modeling case fatality rates of COVID-19. Submitted.
